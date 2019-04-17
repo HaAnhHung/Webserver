@@ -5,12 +5,12 @@ const host = process.env.HOST;
 const port = process.env.PORT;
 
 var server = http.createServer(function(req,res){
-    res.writeHead(200,{"Content-Type": "text/plan"});
+    res.writeHead(200, {"Content-Type": "text/plain"});
     if (req.url == "/hello")
     {
         if (req.method == "GET")
         {
-            res.write("word");
+            res.write("world");
             res.end();
         }
         else if (req.method == "POST")
@@ -25,16 +25,16 @@ var server = http.createServer(function(req,res){
         }
         else if (req.method == "DELETE")
         {
-            res.write("world delete");
+            res.write("world deleted");
             res.end();
         }
     }
-    else
+    else 
     {
         res.write("URL not found!");
     }
 });
-server.listen(port, host, function(err) {
+server.listen(port, host, function (err) {
     if (!err) console.log(`Server started ${host} on ${port}`);
     else console.log(err);
-});
+ });
